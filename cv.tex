@@ -1,0 +1,145 @@
+\documentclass{article}
+\usepackage[margin=1.5in]{geometry}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{xifthen}
+
+
+\renewcommand{\maketitle}{
+    \begin{center}
+        {\huge\bfseries\theauthor}
+
+        \vspace{.25em}
+        Lalitpur, Nepal
+
+        \vspace{.25em}
+        +977 9823663223
+
+        \vspace{.25em}
+        kontaktlabin@gmail.com
+
+        \vspace{.25em}
+        https://github.com/leabstrait
+
+
+
+    \end{center}
+}
+
+% \titleformat{\section}
+% {\huge\bfseries}
+% {\thesection}
+% {0.5em}
+% {- }
+
+\titleformat{\section}
+{\huge}
+{}
+{.25em}
+{\bfseries}[\titlerule]
+
+\titleformat{\subsection}
+{\Large\bfseries}
+{$\hspace{.25in}\bullet$}
+{0.5em}
+{}
+
+\titleformat{\subsubsection}[runin]
+{\bfseries}
+{}
+{0em}
+{}[--]
+
+\titlespacing{\subsubsection}{3em}{.25em}{1em}
+
+% Making the \entry command
+\newcommand{\entry}[4]{
+    \ifthenelse{\isempty{#3}}
+    {\slimentry{#1}{#2}}{
+
+        \begin{minipage}[t]{.15\linewidth}
+            \hfill \textsc{#1}
+        \end{minipage}
+        \hfill\vline\hfill
+        \begin{minipage}[t]{.80\linewidth}
+            {\bf#2}\\\textit{#3} \footnotesize{#4}
+        \end{minipage}\\
+        \vspace{.2cm}
+    }}
+
+\newcommand{\slimentry}[2]{
+
+    \begin{minipage}[t]{.15\linewidth}
+        \hfill \textsc{#1}
+    \end{minipage}
+    \hfill\vline\hfill
+    \begin{minipage}[t]{.80\linewidth}
+        #2
+    \end{minipage}\\
+    \vspace{.25cm}
+}% end \entry command definition
+
+\title{R\'esum\'e}
+\author{Labin Ojha}
+
+\begin{document}
+\maketitle
+
+
+\section{Professional Service}
+
+\entry{Dec 2021 - present}
+{Pi Tech Info Pvt. Ltd. - Software Engineer}
+{Kathmandu, Nepal}
+{
+    Full-Stack Developer and acting team lead for their product called ‘Chukul’ which offers
+    fundamental analysis and technical analysis of stocks as a service.
+    Worked with Django, VueJS, TradingView
+}
+\entry   {Feb 2020 - Sep 2021}
+{Beta Analytics Pvt. Ltd. - Software Developer}
+{Kathmandu, Nepal}
+{
+    Full-Stack Developer on their in-house data entry and reporting system.
+    Full-Stack Developer on a web application framework for stockbrokers.
+    Developed a browser extension for automation of form filling via fetch from a remote resource
+}
+\entry   {Jan 2020 - Feb 2020}
+{Sudreeshya IT Training Academy - Python Instructor}
+{Kathmandu, Nepal}
+{
+    Delivered a course in Python programming to 3rd-year college students
+}
+\entry   {Feb 2018  - Dec 2019}
+{Innovative Engineering and Construction Technologies Pvt. Ltd. - Information Systems Officer}
+{Kathmandu, Nepal}
+{
+    \begin{itemize}
+        \item Managed and oversaw the development of their websites and mobile apps
+        \item Maintained and Monitored the organisation’s ERP software(Bitrix24) and other computing and network equipment
+        \item Tested and evaluated new technologies
+        \item Proposed hardware/software solutions to accomplish the company's business objectives
+        \item Documented, Reported findings and observations for Business Process Optimization.
+    \end{itemize}
+}
+
+\entry   {Sep 2017 - Dec 2017}
+{Bajra Technologies Pvt. Ltd. - Software Development Intern}
+{Kathmandu, Nepal}
+{
+    Built a backend module in Golang for one of their in-house project named ‘Sitehawk’ which
+    is a website monitoring service
+}
+\entry   {2015 - 2016}
+{CSIT Association of Nepal - Executive Member}
+{Kathmandu, Nepal}
+{
+    Participated in committee meetings and assisted in events held by the organization
+}
+
+\section{Technologies}
+
+\section{Education}
+
+\section{}
+\end{document}
