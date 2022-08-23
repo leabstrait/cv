@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[margin=1.5in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage{titlesec}
 \usepackage{titling}
 \usepackage{xifthen}
@@ -20,17 +20,8 @@
 
         \vspace{.25em}
         https://github.com/leabstrait
-
-
-
     \end{center}
 }
-
-% \titleformat{\section}
-% {\huge\bfseries}
-% {\thesection}
-% {0.5em}
-% {- }
 
 \titleformat{\section}
 {\huge}
@@ -56,19 +47,19 @@
 \newcommand{\entry}[4]{
     \ifthenelse{\isempty{#3}}
     {\slimentry{#1}{#2}}{
-
         \begin{minipage}[t]{.15\linewidth}
-            \hfill \textsc{#1}
+            \hfill\textsc{#1}
         \end{minipage}
         \hfill\vline\hfill
         \begin{minipage}[t]{.80\linewidth}
-            {\bf#2}\\\textit{#3} \footnotesize{#4}
+            {\bf#2}\\\textit{#3}
+
+            \footnotesize{#4}
         \end{minipage}\\
         \vspace{.2cm}
     }}
 
 \newcommand{\slimentry}[2]{
-
     \begin{minipage}[t]{.15\linewidth}
         \hfill \textsc{#1}
     \end{minipage}
@@ -144,12 +135,11 @@
 
 \section{Tools and Technologies}
 
-\begin{itemize}
-    \item Programming Languages: Python, JavaScript
-    \item Version Control and Source Code Management: Git, GitHub
-    \item System Infrastructure: Linux, Docker
-    \item Productivity: MS Office, Jira, Bitrix24
-\end{itemize}
+\subsubsection{Programming Languages} Python, JavaScript
+\subsubsection{Version Control and Source Code Management} Git, GitHub
+\subsubsection{System Infrastructure} Linux, Docker
+\subsubsection{Productivity} MS Office, Jira, Bitrix24
+
 
 \section{Education}
 
