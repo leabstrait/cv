@@ -1,180 +1,215 @@
-\documentclass{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{titlesec}
-\usepackage{titling}
-\usepackage{xifthen}
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
+% (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
+% (c) 2011 Scott Clark <sc932@cornell.edu> http://cam.cornell.edu/~sc932
+% (c) 2022 Labin Ojha <leabstrait@gmail.com> https://github.com/leabstrait
+%
+
+%This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
+
+\documentclass[letterpaper,11pt]{article}
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\usepackage[svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{tocloft}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+\robustify\cftdotfill
 
 
-\renewcommand{\maketitle}{
-    \begin{center}
-        {\huge\bfseries\theauthor}
+%-----------------------------------------------------------
+%Edit these values as you see fit
 
-        \vspace{.25em}
-        Lalitpur, Nepal
+\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
+\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
 
-        \vspace{.25em}
-        +977 9823663223
 
-        \vspace{.25em}
-        kontaktlabin@gmail.com
+%-----------------------------------------------------------
+%Margin setup
 
-        \vspace{.25em}
-        https://github.com/leabstrait
-    \end{center}
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+
+%-----------------------------------------------------------
+%Custom commands
+
+\newcommand{\cvheading}[1]{\vspace{8pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+    \begin{shaded}
+
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+    \end{shaded}
+  }\vspace{-5pt}
 }
 
-\titleformat{\section}
-{\huge}
-{}
-{.25em}
-{\bfseries}[\titlerule]
+\newcommand{\cvsubheading}[4]{
+\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
 
-\titleformat{\subsection}
-{\Large\bfseries}
-{$\hspace{.25in}\bullet$}
-{0.5em}
-{}
+\newcommand{\cvitem}[1]{\item #1 \vspace{-2pt}}
 
-\titleformat{\subsubsection}[runin]
-{\bfseries}
-{}
-{0em}
-{}[--]
+%-----------------------------------------------------------
 
-\titlespacing{\subsubsection}{3em}{.25em}{1em}
-
-% Making the \entry command
-\newcommand{\entry}[4]{
-    \ifthenelse{\isempty{#3}}
-    {\slimentry{#1}{#2}}{
-        \begin{minipage}[t]{.15\linewidth}
-            \hfill\textsc{#1}
-        \end{minipage}
-        \hfill\vline\hfill
-        \begin{minipage}[t]{.80\linewidth}
-            {\bf#2}\\\textit{#3}
-
-            \footnotesize{#4}
-        \end{minipage}\\
-        \vspace{.2cm}
-    }}
-
-\newcommand{\slimentry}[2]{
-    \begin{minipage}[t]{.15\linewidth}
-        \hfill \textsc{#1}
-    \end{minipage}
-    \hfill\vline\hfill
-    \begin{minipage}[t]{.80\linewidth}
-        #2
-    \end{minipage}\\
-    \vspace{.25cm}
-}% end \entry command definition
-
-\title{R\'esum\'e}
-\author{Labin Ojha}
 
 \begin{document}
-\maketitle
+
+\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+      \textbf{\Large Labin Ojha} & \href{tel://+977-9823663223}{+977-9823663223} \\
+      Software Developer and Team Lead at PitechInfo & \href{mailto:kontaktlabin@gmail.com}{kontaktlabin@gmail.com} \\
+      \href{https://github.com/leabstrait}{\texttt{https://github.com/leabstrait}}  & \small{Last Updated: \textbf{\today}} \href{https://cv.labinojha.com.np/cv-labinojha.pdf}{Download}
+\end{tabular*}
+\\
 
 
-\section{Professional Service}
-
-\entry{Dec 2021 - present}
-{Pi Tech Info Pvt. Ltd. - Software Engineer}
-{Kathmandu, Nepal}
-{
-    Full-Stack Developer and acting team lead for their product called ‘Chukul’ which offers
-    fundamental analysis and technical analysis of stocks as a service.
-    Worked with Django, VueJS, TradingView
-}
-
-\entry{Feb 2020 - Sep 2021}
-{Beta Analytics Pvt. Ltd. - Software Developer}
-{Kathmandu, Nepal}
-{
-    Full-Stack Developer on their in-house data entry and reporting system.
-    Full-Stack Developer on a web application framework for stockbrokers.
-    Developed a browser extension for automation of form filling via fetch from a remote resource
-}
-
-\entry{Jan 2020 - Feb 2020}
-{Sudreeshya IT Training Academy - Python Instructor}
-{Kathmandu, Nepal}
-{
-    Delivered a course in Python programming to 3rd-year college students
-}
-
-\entry{Feb 2018 - Dec 2019}
-{Innovative Engineering and Construction Technologies Pvt. Ltd. - Information Systems Officer}
-{Kathmandu, Nepal}
-{
-    \begin{itemize}
-        \item Managed and oversaw the development of their websites and mobile apps
-        \item Maintained and Monitored the organisation’s ERP software(Bitrix24) and other computing and network equipment
-        \item Tested and evaluated new technologies
-        \item Proposed hardware/software solutions to accomplish the company's business objectives
-        \item Documented, Reported findings and observations for Business Process Optimization.
-    \end{itemize}
-}
-
-
-\entry{Sep 2017 - Dec 2017}
-{Bajra Technologies Pvt. Ltd. - Software Development Intern}
-{Kathmandu, Nepal}
-{
-    Built a backend module in Golang for one of their in-house project named ‘Sitehawk’ which
-    is a website monitoring service
-}
-
-\entry{2015 - 2016}
-{CSIT Association of Nepal - Executive Member}
-{Kathmandu, Nepal}
-{
-    Participated in committee meetings and assisted in events held by the organization
-}
-
-\section{Tools and Technologies}
-
-\subsubsection{Programming Languages} Python, JavaScript
-\subsubsection{Version Control and Source Code Management} Git, GitHub
-\subsubsection{System Infrastructure} Linux, Docker
-\subsubsection{Productivity} MS Office, Jira, Bitrix24
-
-
-\section{Education}
-
-\entry {2014 - 2018}
-{Tribhuvan University - BSc. Computer Science and Information Technology}
-{Lalitpur, Nepal}
-{Took courses in Computer Programming, Data Structures, Algorithms,
-    System Analysis and Design, Computation Theory, Artificial Intelligence,
-    Statistics and Machine Learning
-    The final year project was an android application for Algorithm Visualization.
-}
-
-\entry {2010 - 2012}
-{Capital Higher Secondary School - High School Certificate}
-{Kathmandu, Nepal}
-{Studied Physics, Mathematics, Computer Science
-    Participated in Science Exhibitions
-    Founding Member of an IT Club
-}
-
-\entry {- 2010}
-{Lalitpur Secondary Boarding School - School Leaving Certificate}
-{Lalitpur, Nepal}
-{Participated in Science Exhibitions and other extracurriculars}
-
-\section{Participations and Activities}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cvheading{Work Experience}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
-    \item Conducted a business case study of Sastodeal on “Improving customer retention rate in the eCommerce marketplace” at Glocal Skill Week 2021 (29 March 2021)
-    \item Attended ThreatCon 2019, a local-level cybersecurity conference. Participated in CTF(Capture The Flag) competition at the event with a team (31 Aug 2019)
-    \item Participated in Youth Leadership Forum training organized by International Community Development Foundation (ICDF) and American Embassy. Key themes of the training were: 21st Century Leadership, Self-Exploration, Resource Exploration, and Enterprise Building (5 - 7 June 2019)
-    \item Participated in Nepal Internet Governance Forum 2018, voiced opinions, and carried out discussions regarding Internet usage, safety, and policy (2-3 Nov 2018)
-    \item Participated in Open Data Hackathon - 2015 with a team. Presented a prototype project called ‘Prakriya’ which offers easy information about administrative processes in Government Offices. I was responsible for extracting data from pdf files. (7 Mar 2015)
-    \item Volunteered at Yantra 1.0 - National Robotics Competition organized by Robotics Association of Nepal (20-21 July 2012)
+
+      \item
+            \cvsubheading{Pi Tech Info Pvt. Ltd.}{Kathmandu, Nepal}{Software Team Lead}{December 2021 - current}
+            \begin{itemize}
+                  \cvitem{Full-Stack Developer and acting team lead for their product called ‘Chukul’ which offers fundamental analysis and technical analysis of stocks as a service.}
+                  \cvitem{Worked with Django, VueJS, TradingView}
+            \end{itemize}
+            
+      \item
+      
+            \cvsubheading{Beta Analytics Pvt. Ltd.}{Kathmandu, Nepal}{Software Developer}{Feb 2020 - September 2021}
+            \begin{itemize}
+                  \cvitem{Full-Stack Developer on their in-house data entry and reporting system.}
+                  \cvitem{Full-Stack Developer on a web application framework for stockbrokers.}
+                  \cvitem{Developed a browser extension for automation of form filling via fetch from a remote resource.}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Sudreeshya IT Training Academy}{Kathmandu, Nepal}{Python Instructor}{Jan 2020 - Feb 2020}
+            \begin{itemize}
+                  \cvitem{Delivered a course in Python programming to 3rd-year college students}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Innovative Engineering and Construction Technologies Pvt. Ltd.}{Kathmandu, Nepal}{Information Systems Officer}{Feb 2018  - Dec 2019}
+            \begin{itemize}
+                  \cvitem{Managed and oversaw the development of their websites and mobile apps}
+                  \cvitem{Maintained and Monitored the organisation’s ERP software(Bitrix24) and other computing and network equipment}
+                  \cvitem{Tested and evaluated new technologies}
+                  \cvitem{Proposed hardware/software solutions to accomplish the company's business objectives}
+                  \cvitem{Documented \& Reported findings and observations for Business Process Optimization.}
+            \end{itemize}
+            \cvsubheading{Bajra Technologies Pvt. Ltd.}{Kathmandu, Nepal}{Software Development Intern}{Sep 2017 - Dec 2017}
+            \begin{itemize}
+                  \cvitem{Built a backend module in Golang for one of their in-house project named ‘Sitehawk’ which is a website monitoring service}
+            \end{itemize}
+            
+            
+      \item
+            \cvsubheading{CSIT Association of Nepal}{Kathmandu, Nepal}{Executive Member}{2015 - 2016}
+            \begin{itemize}
+                  \cvitem{Participated in committee meetings}
+                  \cvitem{Assisted in events held by the organisation}
+            \end{itemize}
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cvheading{Skills}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+      \item {\bf Numerical Analysis and Computer Science:} Machine Learning, Data Mining, Optimization, Computational Science, Artificial Intelligence, Linear Algebra, Monte Carlo Methods, ODEs, PDEs, Iterative Methods, Parallel Programming, Distributed Systems, Data Structures
+            
+      \item {\bf Public Speaking:} I've given several hundred technical talks to audiences at machine learning conferences, Fortune 500 boards, and beyond.
+            
+      \item {\bf Development:} Python (preferred), C/C++, CUDA, JavaScript, \LaTeX
+            
+      \item {\bf Technology:} MapReduce, numerical libraries, web frameworks, databases, linux, git, vim, tmux
+            
+      \item Discovering and implementing new ideas. Give me an API and a problem and I will figure it out.
+            
+      \item Diverse background in Math, Computer Science, Physics and Biology allows me to communicate to a wide scientific and general audience and begin contributing to any group immediately.
+            
+      \item I have worked in many places in a myriad of fields. I can readily learn and adapt to a new discipline, area or environment and start pushing real results quickly.
+            
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cvheading{Education}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+      \item
+            \cvsubheading{Tribhuvan University}{Kathmandu, Nepal}{BSc. Computer Science and Information Technology}{2014 - 2018}
+            \begin{itemize}
+                  \cvitem{Took courses in Computer Programming, Data Structures \& Algorithms, System Analysis and Design, Computation Theory, Artificial Intelligence, Statistics and Machine Learning}
+                  \cvitem{The final year project was an android application for Algorithm Visualization.}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Capital Higher Secondary School}{Kathmandu, Nepal}{High School Certificate}{2010 - 2012}
+            \begin{itemize}
+                  \cvitem{Studied Physics, Mathematics, Computer Science}
+                  \cvitem{Participated in Science Exhibitions}
+                  \cvitem{Founding Member of an IT Club}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Lalitpur Secondary Boarding School}{Lalitpur, Nepal}{School Leaving Certificate}{2010}
+            \begin{itemize}
+                  \cvitem{Participated in Science Exhibitions and other extracurriculars}
+            \end{itemize}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cvheading{Participation in Workshops and Conferences}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+      \item
+            \cvsubheading{ThreatCon 2019}{Kathmandu, Nepal}{ThreatNix Pvt. Ltd.}{31 Aug 2019}
+            \begin{itemize}
+                  \cvitem{A local-level cybersecurity conference.}
+                  \cvitem{Participated in CTF(Capture The Flag) competition at the event with a team }
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Youth Leadership Forum training}{Lalitpur, Nepal}{International Community Development Foundation (ICDF), American Embassy}{5 - 7 June 2019}
+            \begin{itemize}
+                  \cvitem{Key themes of the training were: 21st Century Leadership, Self-Exploration, Resource Exploration, and Enterprise Building}
+            \end{itemize}
+      \item
+            \cvsubheading{Nepal Internet Governance Forum 2018}{Lalitpur, Nepal}{Internet Governance Forum, Nepal Chapter}{2-3 Nov 2018}
+            \begin{itemize}
+                  \cvitem{Carried out discussions regarding Internet usage, safety, and policy}
+            \end{itemize}
+      \item
+            \cvsubheading{Open Data Hackathon - 2015}{Kathmandu, Nepal}{Open Data Nepal}{7 March 2015}
+            \begin{itemize}
+                  \cvitem{With a team, presented a prototype project called ‘Prakriya’ which offers easy information about administrative processes in Government Offices. I was responsible for extracting data from pdf files.}
+            \end{itemize}
+      \item
+            \cvsubheading{Yantra 1.0 - National Robotics Competition}{Kathmandu, Nepal}{Robotics Association of Nepal}{20-21 July 2012}
+            \begin{itemize}
+                  \cvitem{Volunteered}
+            \end{itemize}
+\end{itemize}
+
+\pagebreak
 
 \end{document}
