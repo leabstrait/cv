@@ -1,0 +1,300 @@
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
+% (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
+% (c) 2011 Scott Clark <sc932@cornell.edu> http://cam.cornell.edu/~sc932
+% (c) 2022 Labin Ojha <leabstrait@gmail.com> https://github.com/leabstrait
+%
+
+%This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
+
+\documentclass[letterpaper,11pt]{article}
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\usepackage[svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{tocloft}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+\robustify\cftdotfill
+
+
+%-----------------------------------------------------------
+%Edit these values as you see fit
+
+\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
+\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+\hypersetup{colorlinks=true, allcolors=blue, linktocpage} % Color hyperref links
+
+
+%-----------------------------------------------------------
+%Margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+
+%-----------------------------------------------------------
+%Custom commands
+
+\newcommand{\cvheading}[1]{\vspace{8pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+    \begin{shaded}
+
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+    \end{shaded}
+  }\vspace{-5pt}
+}
+
+\newcommand{\cvsubheading}[4]{
+\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+
+\newcommand{\cvitem}[1]{\item #1 \vspace{-2pt}}
+
+
+%-----------------------------------------------------------
+
+
+\begin{document}
+
+\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+      \textbf{\Large Labin Ojha} & \href{tel://+44 7463 751853}{+44 7463 751853} \\
+      Looking for growth opportunities in the UK & \href{mailto:kontaktlabin@gmail.com}{kontaktlabin@gmail.com} \\
+      \href{https://github.com/leabstrait}{\texttt{https://github.com/leabstrait}}  & London, United Kingdom \\
+      &\tiny{Last Updated: \textbf{\today}} \href{https://cv.labinojha.com.np/cv-labin-ojha.pdf}{Download}
+\end{tabular*}
+\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cvheading{Work Experience}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+      \item
+            \cvsubheading{Milestone Restaurants Ltd t/a McDonald's}{Charlton, London}{Team Member}{October 2022 - Present}
+            \begin{itemize}
+                  \cvitem{Work in a fast paced, challenging environment producing food efficiently and following proper protocols and procedures.}
+                  \cvitem{Learned crucial skills like time management and interpersonal skills.}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{The Hilton Hotels}{Uxbridge Rd, London}{Temp Conference and Banqueting Staff}{September 2022 - Present}
+            \begin{itemize}
+                  \cvitem{Assigned to the Hotels via a recruitment agency.}
+                  \cvitem{Temp Events Staff for various events in the Hiton Hotels.}
+                  \cvitem{The guest count would vary from a few people to several hundreds. We worked with a team of 4 or 5 to cater for the guests.}
+                  \cvitem{Work in the kitchen as cleaner, runner and porter in collaboration with managers, chefs and other staff.}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Pi Tech Info Pvt. Ltd.}{Kathmandu, Nepal}{Software Developer}{December 2021 - September 2022}
+            \begin{itemize}
+                  \cvitem{Full-Stack Developer and acting team lead for their product called \href{https://chukul.com}{'Chukul'} which offers fundamental analysis and technical analysis of stocks as a service.}
+                  \cvitem{Worked with Django, Vue.js, Quasar UI, TradingView}
+                  \cvitem{Launched the product in a short timeframe and helped the company breakeven after about 4 months of launch.}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Beta Analytics Pvt. Ltd.}{Kathmandu, Nepal}{Software Developer}{Feb 2020 - September 2021}
+            \begin{itemize}
+                  \cvitem{Full-Stack Developer on their in-house data entry and reporting system.}
+                  \cvitem{
+                        Full-Stack Developer on a web application framework for stockbrokers. The framework allowed for multiple revenue streams for the company while having to maintain a singe codebase. It had features like:
+                        \begin{itemize}
+                              \item Integration with Stock Market Data and Stats API
+                              \item Managing downloadable content
+                              \item Creating and updating notices and blog posts
+                              \item User Registration System that integrated with the Nepal Stock Exchange \href{https://tms01.nepsetms.com.np/}{Trading Management System}
+                        \end{itemize}
+                  }
+                  \cvitem{
+                        List of stockbrokers using the framework:
+                        \begin{itemize}
+                              \item \href{https://www.premiersecurities.com.np/}{Premier Securities}
+                              \item \href{https://www.swetasecurities.com/}{Sweta Securities}
+                              \item \href{https://mallastock.com/}{Malla \& Malla Stockbroking Co.}
+                              \item \href{https://siprabi.com/}{Siprabi Securities}
+                              \item \href{https://kumarisecurities.com/}{Kumari Securities}
+                        \end{itemize}
+                  }
+                  
+                  \cvitem{Developed a browser extension to automate filling up forms.}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Sudreeshya IT Training Academy}{Kathmandu, Nepal}{Python Instructor}{Jan 2020 - Feb 2020}
+            \begin{itemize}
+                  \cvitem{Delivered a \href{https://github.com/leabstrait/basic-python-class}{course} in Python programming to 3rd-year college students.}
+                  \cvitem{Each student was assigned an end-of-course project and they demonstrated considerable understanding of the concepts. Many of them are employed now in good companies.}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Innovative Engineering and Construction Technologies Pvt. Ltd.}{Kathmandu, Nepal}{Information Systems Officer}{Feb 2018  - Dec 2019}
+            \begin{itemize}
+                  \cvitem{Managed and oversaw the development of their website - \href{https://meroghar.com}{Meroghar Website} and mobile app}
+                  \cvitem{Maintained and Monitored the organisation’s ERP software(Bitrix24)}
+                  \cvitem{Setup, Operation and Troubleshooting of computing and network equipment like Routers and Switches, CCTV, Access Control and Attendance Systems, IVR}
+                  \cvitem{Tested and evaluated new tools and technologies. Proposed hardware/software solutions to accomplish the company's business objectives}
+                  \cvitem{Negotiated pricing and fees with various software providers and equipment vendors to cut down operation costs of the organization.}
+                  \cvitem{Documented \& Reported findings and observations for Business Process Optimization.}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Bajra Technologies Pvt. Ltd.}{Kathmandu, Nepal}{Software Development Intern}{Sep 2017 - Dec 2017}
+            \begin{itemize}
+                  \cvitem{Built a backend module in Golang for one of their in-house project named \href{https://sitehawk.io}{‘Sitehawk’} which is a website monitoring service}
+                  \cvitem{The module utilized Bing Search API to determine rankings of our client's websites which was quite useful and appreciated.}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{LogicVent Technology Pvt. Ltd.}{Bhaktapur, Nepal}{Software Developer}{Sep 2017 - Present}
+            \begin{itemize}
+                  \cvitem{Startup founded with friends with aim to gain clients while also working on internal projects.}
+                  \cvitem{Backend Developer for in house and client projects.}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{CSIT Association of Nepal}{Kathmandu, Nepal}{Executive Member}{2015 - 2016}
+            \begin{itemize}
+                  \cvitem{Built and wrote content for their very first website - \href{https://csitan.org.np/}{CSITAN}}
+                  \cvitem{Participated in committee meetings.}
+                  \cvitem{Assisted in events held by the organisation which included sponsored Training Programs, Tech Community Meetups and Panel Discussions pertaining to the IT sector in Nepal.}
+                  \cvitem{During my tenure, we also expanded the organization to include students and colleges of Computer Science throughout Nepal by establishing regional units of our organization.}
+            \end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cvheading{Skills}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+      \item {\bf Computer Science:} Data Structures and Algorithms, Machine Learning, Artificial Intelligence, Linear Algebra,
+            
+      \item {\bf Programming:} Python (preferred), Javascript, \LaTeX
+            
+      \item {\bf Technologies:}
+            \begin{itemize}
+                  \item {\bf Web Frameworks}: Flask, Django
+                  \item {\bf JS Frameworks}: Vue.js, TradingView
+                  \item {\bf Databases:} PostgreSQL
+                  \item {\bf Systems:} Linux, Docker
+                  \item {\bf DevTools:} git, tmux, Makefile
+            \end{itemize}
+            
+      \item {\bf Teaching:} I've given several classes and tutorials to students and interested audiences.
+            
+      \item Discovering and implementing new ideas. Give me an API and a problem and I will figure it out.
+            
+      \item Background in Math, Computer Science, allows me break down problems and find solutions.
+            
+      \item I can learn and adapt to a new discipline, area or environment and get results quickly.
+            
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cvheading{Education}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+      \item
+            \cvsubheading{Tribhuvan University}{Kathmandu, Nepal}{BSc. Computer Science and Information Technology}{2014 - 2018}
+            \begin{itemize}
+                  \cvitem{Took courses in Computer Programming, Data Structures \& Algorithms, System Analysis and Design, Computation Theory, Artificial Intelligence, Statistics and Machine Learning}
+                  \cvitem{The final year project was an android application for Algorithm Visualization.}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Capital Higher Secondary School}{Kathmandu, Nepal}{High School Certificate}{2010 - 2012}
+            \begin{itemize}
+                  \cvitem{Studied Physics, Mathematics, Computer Science}
+                  \cvitem{Participated in Annual Science Exhibitions. Notable exhibit - 'High Voltage Show' which included a Tesla Coil Disco Ball, Jacob's Ladder, a Makeshift Oscillator along with a display of various High Voltage Components used in machines around us.}
+                  \cvitem{Founding Member of an IT Club}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Lalitpur Secondary Boarding School}{Lalitpur, Nepal}{School Leaving Certificate}{2010}
+            \begin{itemize}
+                  \cvitem{Participated in Annual Science Exhibitions. Notable exhibit - A remote-controlled robot that drilled and extracted fluids from underground.}
+            \end{itemize}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cvheading{Participation in Workshops and Conferences}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+      \item
+            \cvsubheading{THREAT CON 2019}{Kathmandu, Nepal}{ThreatNix Pvt. Ltd.}{31 Aug 2019}
+            \begin{itemize}
+                  \cvitem{A local-level cybersecurity conference.}
+                  \cvitem{Participated in \href{https://cybertalents.com/competitions/threat-con-ctf-2019/teams}{CTF(Capture The Flag) competition} at the event with a 3 member team(Team 168) - Rank \#7 / \#21 }
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Youth Leadership Forum training}{Lalitpur, Nepal}{International Community Development Foundation (ICDF), American Embassy}{5 - 7 June 2019}
+            \begin{itemize}
+                  \cvitem{Key themes of the training were: 21st Century Leadership, Self-Exploration, Resource Exploration, and Enterprise Building}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Nepal Internet Governance Forum 2018}{Lalitpur, Nepal}{Internet Governance Forum, Nepal Chapter}{2-3 Nov 2018}
+            \begin{itemize}
+                  \cvitem{Carried out discussions regarding Internet usage, safety, and policy}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Open Data Hackathon - 2015}{Kathmandu, Nepal}{Open Data Nepal}{7 March 2015}
+            \begin{itemize}
+                  \cvitem{With a team, presented a prototype project called ‘Prakriya’ which offers easy information about administrative processes in Government Offices. I was responsible for extracting data from pdf files.}
+            \end{itemize}
+            
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cvheading{References}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+
+      \item
+            \cvsubheading{Bimod Dev Panta}{Kathmandu, Nepal}{Pitech Info Pvt. Ltd.}{}
+            \begin{itemize}
+                  \cvitem{+977 9849895805}
+                  \cvitem{bdevpanta@gmail.com, connect@pitechinfo.com}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Rohit Man Amatya}{Lalitpur, Nepal}{Beta Analytics Pvt. Ltd.}{}
+            \begin{itemize}
+                  \cvitem{+977 9843063261}
+                  \cvitem{rho.rhoit@gmail.com, rhoit.com}
+            \end{itemize}
+            
+      \item
+            \cvsubheading{Dipesh Deuja}{Bhaktapur, Nepal}{LogicVent Technology Pvt. Ltd.}{}
+            \begin{itemize}
+                  \cvitem{+977 9860896508}
+                  \cvitem{deujadipesh1407@gmail.com, contact@logicvent.com}
+            \end{itemize}
+            
+\end{itemize}
+
+\pagebreak
+
+\end{document}
