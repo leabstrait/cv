@@ -7,11 +7,36 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
         
-      - name: Compile LaTeX document
+      - name: Compile cv 
         uses: xu-cheng/latex-action@v2
         with:
           root_file: cv-labin-ojha.tex
           
-      - name: Commit generated document back to the repository 
+      - name: Commit generated cv back to the repository 
         uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: update cv
+          file_pattern: 'cv-labin-ojha.pdf'
+          
+      - name: Compile cover letter
+
+        uses: xu-cheng/latex-action@v2
+
+        with:
+
+          root_file: cover-letter-labin-ojha.tex
+
+          
+
+      - name: Commit generated cover letter back to the repository 
+
+        uses: stefanzweifel/git-auto-commit-action@v4
+
+        with:
+
+          commit_message: update cover letter
+
+          file_pattern: 'cover-letter-labin-ojha.pdf'
+
+          
 
