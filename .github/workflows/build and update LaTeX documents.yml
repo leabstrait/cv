@@ -1,7 +1,7 @@
-name: Build and Update LaTeX document
+name: Build and Update LaTeX documents
 on: [push]
 jobs:
-  build_latex:
+  build_update_latex :
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
