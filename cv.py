@@ -8,7 +8,7 @@ data = {
         "github": "https://github.com/leabstrait",
         "location": "London, United Kingdom",
         "last_updated": datetime.datetime.today(),
-        "download_link": "https://cv.labinojha.com.np/cv-labin-ojha.pdf",
+        "download_link": "https://cv.labinojha.com.np/labin-ojha-cv.pdf",
     },
     "work_experience": [
         # {
