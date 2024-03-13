@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ personal_information.name }} - CV</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-header {
+            font-weight: bold;
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subsection {
+            margin-left: 20px;
+        }
+
+        .subsection-header {
+            font-weight: bold;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .list-item {
+            margin-bottom: 5px;
+            color: #777;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="section">
+            <div class="section-header">Personal Information</div>
+            <ul>
+                <li class="list-item">Name: {{ personal_information.name }}</li>
+                <li class="list-item">Phone: {{ personal_information.phone }}</li>
+                <li class="list-item">Email: {{ personal_information.email }}</li>
+                <li class="list-item">GitHub: <a href="{{ personal_information.github }}">{{ personal_information.github
+                        }}</a></li>
+                <li class="list-item">Location: {{ personal_information.location }}</li>
+                <li class="list-item">Last Updated: {{ personal_information.last_updated }}</li>
+                <li class="list-item">Download Link: <a href="{{ personal_information.download_link }}">{{
+                        personal_information.download_link }}</a></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Work Experience</div>
+            {% for experience in work_experience %}
+            <div class="subsection">
+                <div class="subsection-header">{{ experience.company }}</div>
+                <ul>
+                    <li class="list-item">Location: {{ experience.location }}</li>
+                    <li class="list-item">Position: {{ experience.position }}</li>
+                    <li class="list-item">Date: {{ experience.date }}</li>
+                    <li class="list-item">Responsibilities:</li>
+                    <ul>
+                        {% for responsibility in experience.responsibilities %}
+                        <li class="list-item">{{ responsibility }}</li>
+                        {% endfor %}
+                    </ul>
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <div class="section-header">Skills</div>
+            <ul>
+                <li class="list-item">Computer Science: {{ skills.computer_science }}</li>
+                <li class="list-item">Programming: {{ skills.programming }}</li>
+                <li class="list-item">Technologies:</li>
+                <ul>
+                    {% for key, value in skills.technologies.items() %}
+                    <li class="list-item">{{ key }}: {{ value }}</li>
+                    {% endfor %}
+                </ul>
+                <li class="list-item">Teaching: {{ skills.teaching }}</li>
+                <li class="list-item">Other:</li>
+                <ul>
+                    {% for item in skills.other %}
+                    <li class="list-item">{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Education</div>
+            {% for education_detail in education %}
+            <div class="subsection">
+                <div class="subsection-header">{{ education_detail.institution }}</div>
+                <ul>
+                    <li class="list-item">Location: {{ education_detail.location }}</li>
+                    <li class="list-item">Degree: {{ education_detail.degree }}</li>
+                    <li class="list-item">Date: {{ education_detail.date }}</li>
+                    <li class="list-item">Details:</li>
+                    <ul>
+                        {% for detail in education_detail.details %}
+                        <li class="list-item">{{ detail }}</li>
+                        {% endfor %}
+                    </ul>
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <div class="section-header">Participation in Workshops and Conferences</div>
+            {% for event_detail in participation_in_workshops_and_conferences %}
+            <div class="subsection">
+                <div class="subsection-header">{{ event_detail.event }}</div>
+                <ul>
+                    <li class="list-item">Location: {{ event_detail.location }}</li>
+                    <li class="list-item">Organizer: {{ event_detail.organizer }}</li>
+                    <li class="list-item">Date: {{ event_detail.date }}</li>
+                    <li class="list-item">Details:</li>
+                    <ul>
+                        {% for detail in event_detail.details %}
+                        <li class="list-item">{{ detail }}</li>
+                        {% endfor %}
+                    </ul>
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="section">
+            <div class="section-header">References</div>
+            <ul>
+                {% for reference in references %}
+                <li class="list-item">{{ reference.name }} - {{ reference.company }} ({{ reference.location }}) -
+                    Contact: {{ reference.contact }} - Email:
+                    {% for email in reference.email %}
+                    <a href="mailto:{{ email }}">{{ email }}</a>{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

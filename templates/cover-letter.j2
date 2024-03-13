@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .sender,
+        .recipient,
+        .subject,
+        .body,
+        .closing {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cover Letter</h1>
+        <div class="recipient">
+            <p>To:<br>
+                {% if recipient_name %}
+                {{ recipient_name }},<br>
+                {% endif %}
+                {{ recipient_position }},<br>
+                {{ recipient_company }},<br>
+                {{ recipient_company_address }}
+            </p>
+        </div>
+
+        <div class="subject">
+            <p>Subject:</p>
+            <p>{{ subject }}</p>
+        </div>
+
+        <div class="body">
+            <p>{{ opening }}</p>
+            <p>{{ body_intro }}</p>
+            <p>{{ body_experience }}</p>
+            <p>{{ body_proposal }}</p>
+            <p>{{ body_conclusion }}</p>
+        </div>
+
+        <div class="closing">
+            <p>Sincerely,</p>
+            <p>{{ sender_name }}</p>
+        </div>
+    </div>
+</body>
+
+</html>
