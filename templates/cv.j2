@@ -8,51 +8,84 @@
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.4;
             margin: 0;
             padding: 20px;
             background-color: #f5f5f5;
+            color: #333;
         }
 
         .container {
+            margin-top: 20px;
             max-width: 800px;
             margin: auto;
             background-color: #fff;
-            padding: 30px;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .last-updated {
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            font-size: 10px;
+            color: #777;
+            margin: 2px;
+            padding: 2px;
+        }
+
+         .cv-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .cv-profile {
+            font-size: 16px;
+            font-weight: normal;
+            margin-top: 10px;
         }
 
         .section {
+            margin-top: 30px;
             margin-bottom: 30px;
+            font-size: 14px;
         }
 
         .section-header {
             font-weight: bold;
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 15px;
+            margin-bottom: 15px;
         }
 
         .subsection {
-            margin-left: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         .subsection-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             font-weight: bold;
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 5px;
+            font-size: 14px;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
+
 
         .list-item {
             margin-bottom: 5px;
-            color: #777;
         }
 
         a {
-            color: #007bff;
+            color: #2f5782;
             text-decoration: none;
         }
 
@@ -66,59 +99,65 @@
 
     <div class="container">
 
+        <p class="last-updated">
+            Last Updated: {{last_updated }}
+        </p>
+
         <div class="section">
-            <div class="section-header">Personal Information</div>
-            <ul>
-                <li class="list-item">Name: {{ personal_information.name }}</li>
-                <li class="list-item">Phone: {{ personal_information.phone }}</li>
-                <li class="list-item">Email: {{ personal_information.email }}</li>
-                <li class="list-item">GitHub: <a href="{{ personal_information.github }}">{{ personal_information.github
-                        }}</a></li>
-                <li class="list-item">Location: {{ personal_information.location }}</li>
-                <li class="list-item">Last Updated: {{ personal_information.last_updated }}</li>
-                <li class="list-item">Download Link: <a href="{{ personal_information.download_link }}">{{
-                        personal_information.download_link }}</a></li>
-            </ul>
+            <div class="subsection">
+                <div class="subsection-header">
+                    <div>
+                        <div class="cv-name">
+                            {{ personal_information.name }}
+                        </div>
+                        <div class="cv-profile">
+                            {{ personal_information.profile}}
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            {{ personal_information.location }}</div>
+                        <div><a href="tel:{{ personal_information.phone }}">{{ personal_information.phone }}</a>
+                        </div>
+                        <div><a href="mailto:{{ personal_information.email }}">{{ personal_information.email }}</a>
+                        </div>
+                        <div><a href="{{ personal_information.github }}">{{ personal_information.github }}</a></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="section">
             <div class="section-header">Work Experience</div>
             {% for experience in work_experience %}
             <div class="subsection">
-                <div class="subsection-header">{{ experience.company }}</div>
-                <ul>
-                    <li class="list-item">Location: {{ experience.location }}</li>
-                    <li class="list-item">Position: {{ experience.position }}</li>
-                    <li class="list-item">Date: {{ experience.date }}</li>
-                    <li class="list-item">Responsibilities:</li>
-                    <ul>
-                        {% for responsibility in experience.responsibilities %}
-                        <li class="list-item">{{ responsibility }}</li>
-                        {% endfor %}
-                    </ul>
-                </ul>
+                <div class="subsection-header">
+                    <div>{{ experience.company }}, {{ experience.location }}</div>
+                </div>
+                <div class="subsection-header">
+                    <div style="font-style: italic; font-weight: normal;">{{ experience.description }}</div>
+                </div>
             </div>
+            {% for position in experience.positions %}
+            <div class="subsection-header" style="color: #555">
+                <div>{{ position.title }}</div>
+                <div>{{ position.start_date }} - {{ position.end_date }}</div>
+            </div>
+            {% endfor %}
+            <ul>
+                {% for responsibility in experience.responsibilities %}
+                <li class="list-item">{{ responsibility }}</li>
+                {% endfor %}
+            </ul>
             {% endfor %}
         </div>
 
         <div class="section">
-            <div class="section-header">Skills</div>
+            <div class="section-header">Technical Skills</div>
             <ul>
-                <li class="list-item">Computer Science: {{ skills.computer_science }}</li>
-                <li class="list-item">Programming: {{ skills.programming }}</li>
-                <li class="list-item">Technologies:</li>
-                <ul>
-                    {% for key, value in skills.technologies.items() %}
-                    <li class="list-item">{{ key }}: {{ value }}</li>
-                    {% endfor %}
-                </ul>
-                <li class="list-item">Teaching: {{ skills.teaching }}</li>
-                <li class="list-item">Other:</li>
-                <ul>
-                    {% for item in skills.other %}
-                    <li class="list-item">{{ item }}</li>
-                    {% endfor %}
-                </ul>
+                {% for key, value in tech_skills.items() %}
+                <li class="list-item">{{ key | replace("_", " ") | capitalize }}: {{ ", ".join(value) }}</li>
+                {% endfor %}
             </ul>
         </div>
 
@@ -126,48 +165,32 @@
             <div class="section-header">Education</div>
             {% for education_detail in education %}
             <div class="subsection">
-                <div class="subsection-header">{{ education_detail.institution }}</div>
+                <div class="subsection-header">
+                    <div>{{ education_detail.institution }}, {{ education_detail.location }}</div>
+                </div>
+                <div class="subsection-header" style="color: #555">
+                    <div>{{ education_detail.degree }}</div>
+                    <div>{{ education_detail.start_date }} - {{ education_detail.end_date }}</div>
+                </div>
                 <ul>
-                    <li class="list-item">Location: {{ education_detail.location }}</li>
-                    <li class="list-item">Degree: {{ education_detail.degree }}</li>
-                    <li class="list-item">Date: {{ education_detail.date }}</li>
-                    <li class="list-item">Details:</li>
-                    <ul>
-                        {% for detail in education_detail.details %}
-                        <li class="list-item">{{ detail }}</li>
-                        {% endfor %}
-                    </ul>
+                    {% for detail in education_detail.details %}
+                    {% if detail %}
+                    <li class="list-item">{{ detail }}</li>
+                    {% endif %}
+                    {% endfor %}
                 </ul>
             </div>
             {% endfor %}
         </div>
 
-        <div class="section">
-            <div class="section-header">Participation in Workshops and Conferences</div>
-            {% for event_detail in participation_in_workshops_and_conferences %}
-            <div class="subsection">
-                <div class="subsection-header">{{ event_detail.event }}</div>
-                <ul>
-                    <li class="list-item">Location: {{ event_detail.location }}</li>
-                    <li class="list-item">Organizer: {{ event_detail.organizer }}</li>
-                    <li class="list-item">Date: {{ event_detail.date }}</li>
-                    <li class="list-item">Details:</li>
-                    <ul>
-                        {% for detail in event_detail.details %}
-                        <li class="list-item">{{ detail }}</li>
-                        {% endfor %}
-                    </ul>
-                </ul>
-            </div>
-            {% endfor %}
-        </div>
 
+        {% if references %}
         <div class="section">
             <div class="section-header">References</div>
             <ul>
                 {% for reference in references %}
                 <li class="list-item">{{ reference.name }} - {{ reference.company }} ({{ reference.location }}) -
-                    Contact: {{ reference.contact }} - Email:
+                    Contact No.: <a href="tel:{{ reference.phone }}">{{ reference.phone }}</a> - Email:
                     {% for email in reference.email %}
                     <a href="mailto:{{ email }}">{{ email }}</a>{% if not loop.last %}, {% endif %}
                     {% endfor %}
@@ -175,7 +198,7 @@
                 {% endfor %}
             </ul>
         </div>
-
+        {%endif%}
     </div>
 
 </body>

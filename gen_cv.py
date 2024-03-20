@@ -1,9 +1,9 @@
 import os
 from jinja2 import Environment, FileSystemLoader
-from xhtml2pdf import pisa
 
 import cv
 import cover_letter
+
 
 def generate_html(template_name, data):
     # Set up Jinja environment
@@ -17,19 +17,6 @@ def generate_html(template_name, data):
     html_output = template.render(data)
 
     return html_output
-
-
-def generate_pdf(html_content, pdf_path):
-    # Generate PDF
-    with open(pdf_path, "wb") as pdf_file:
-        pisa_status = pisa.CreatePDF(html_content, dest=pdf_file)
-
-    if pisa_status.err:
-        print("PDF generation failed:", pisa_status.err)
-        return False
-    else:
-        print(f"PDF generated and saved at {pdf_path}")
-        return True
 
 
 # Example usage
@@ -48,10 +35,6 @@ if __name__ == "__main__":
         cv_html_file.write(cv_html)
     print(f"CV HTML saved as: {cv_html_path}")
 
-    # Generate and save CV PDF
-    cv_pdf_path = "labin-ojha-cv.pdf"
-    generate_pdf(cv_html, cv_pdf_path)
-
     # Generate cover letter HTML
     cover_letter_html = generate_html("cover-letter.j2", cover_letter_data)
 
@@ -60,7 +43,3 @@ if __name__ == "__main__":
     with open(cover_letter_html_path, "w") as cover_letter_html_file:
         cover_letter_html_file.write(cover_letter_html)
     print(f"Cover letter HTML saved as: {cover_letter_html_path}")
-
-    # Generate and save cover letter PDF
-    cover_letter_pdf_path = "labin-ojha-cover-letter.pdf"
-    generate_pdf(cover_letter_html, cover_letter_pdf_path)

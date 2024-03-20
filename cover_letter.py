@@ -37,12 +37,12 @@ body_experience = """
 """
 
 # Define body proposal
-body_proposal = """
+body_proposal = f"""
     I am confident I can learn any new technology on the job. I also have a deep interest in emerging technologies and the businesses that they enable. I believe I can provide value to your company and also fuel my personal growth as a developer in this role available at your company.
 """
 
 # Define body conclusion
-body_conclusion = """
+body_conclusion = f"""
     I would very much like to discuss the aforementioned opportunity at your company. To schedule an interview, please call me at {sender_phone}. Thank you for taking the time to review my resume. I look forward to talking with you.
 """
 
