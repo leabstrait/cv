@@ -22,7 +22,12 @@ jobs:
       - name: Generate cv
         run: python gen_cv.py
 
+      - name: Check for changes
+        id: check_changes
+        run: echo "::set-output name=changes::$(git status --porcelain)"
+
       - name: Commit cv changes
+        if: steps.check_changes.outputs.changes != ''
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
