@@ -36,7 +36,7 @@
             padding: 2px;
         }
 
-         .cv-name {
+        .cv-name {
             font-size: 18px;
             font-weight: bold;
         }
@@ -91,6 +91,74 @@
         a:hover {
             text-decoration: underline;
         }
+
+
+        @media print {
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.4;
+                margin: 0;
+                padding: 0;
+                color: #333;
+            }
+
+            .container {
+                max-width: 100%;
+                margin: auto;
+                padding: 20px;
+            }
+
+            .last-updated {
+                display: none;
+            }
+
+            .cv-name {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .cv-profile {
+                font-size: 16px;
+                font-weight: normal;
+                margin-top: 10px;
+            }
+
+            .section {
+                margin-top: 30px;
+                margin-bottom: 30px;
+                font-size: 14px;
+            }
+
+            .section-header {
+                font-weight: bold;
+                font-size: 16px;
+                text-transform: uppercase;
+                border-bottom: 2px solid #ccc;
+                padding-bottom: 5px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            .subsection-header {
+                font-weight: bold;
+                font-size: 14px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .list-item {
+                margin-bottom: 5px;
+            }
+
+            a {
+                color: #267CB9;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        }
     </style>
 </head>
 
@@ -99,7 +167,7 @@
     <div class="container">
 
         <p class="last-updated">
-            Last Updated: 21-03-2024
+            Last Updated: 27-03-2024
         </p>
 
         <div class="section">
