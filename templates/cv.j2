@@ -189,7 +189,9 @@
                         </div>
                         <div><a href="mailto:{{ personal_information.email }}">{{ personal_information.email }}</a>
                         </div>
-                        <div><a href="{{ personal_information.github }}">{{ personal_information.github }}</a></div>
+                        {% if personal_information.github %}
+                            <div><a href="{{ personal_information.github }}">{{ personal_information.github }}</a></div>
+                        {% endif%}
                     </div>
                 </div>
             </div>
@@ -220,6 +222,7 @@
             {% endfor %}
         </div>
 
+        {% if tech_skills %}
         <div class="section">
             <div class="section-header">Technical Skills</div>
             <ul>
@@ -228,6 +231,7 @@
                 {% endfor %}
             </ul>
         </div>
+        {% endif %}
 
         <div class="section">
             <div class="section-header">Education</div>

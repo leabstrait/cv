@@ -14,7 +14,7 @@ data = {
         # {
         #     "company": "Roland House Apartments",
         #     "description": "Roland House Apartments",
-        #     "location": "South Kensington, SW7 3RX",
+        #     "location": "South Kensington, London, SW7 3RX",
         #     "positions": [
         #         {
         #             "title": "Front Desk",
@@ -27,6 +27,21 @@ data = {
         #         "First point of contact for new customers, vendors",
         #         "Manage multiple administrative and recordkeeping tasks",
         #         "Handle complaints, maintenance requests, and escalate to management or relevant team/person accordingly",
+        #     ],
+        # },
+        # {
+        #     "company": "Mc Donald's",
+        #     "description": "Fast food franchise",
+        #     "location": "New Charlton, London, SE7 7TZ",
+        #     "positions": [
+        #         {
+        #             "title": "Crew Member",
+        #             "start_date": "Oct 2022",
+        #             "end_date": "Jan 2023",
+        #         },
+        #     ],
+        #     "responsibilities": [
+        #         "Carry out kitchen duties",
         #     ],
         # },
         {
