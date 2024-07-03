@@ -11,39 +11,6 @@ data = {
         "location": "London, United Kingdom",
     },
     "work_experience": [
-        # {
-        #     "company": "Roland House Apartments",
-        #     "description": "Roland House Apartments",
-        #     "location": "South Kensington, London, SW7 3RX",
-        #     "positions": [
-        #         {
-        #             "title": "Front Desk",
-        #             "start_date": "Jan 2023",
-        #             "end_date": "",
-        #         },
-        #     ],
-        #     "responsibilities": [
-        #         "Handle check-in, check-out of guests",
-        #         "First point of contact for new customers, vendors",
-        #         "Manage multiple administrative and recordkeeping tasks",
-        #         "Handle complaints, maintenance requests, and escalate to management or relevant team/person accordingly",
-        #     ],
-        # },
-        # {
-        #     "company": "Mc Donald's",
-        #     "description": "Fast food franchise",
-        #     "location": "New Charlton, London, SE7 7TZ",
-        #     "positions": [
-        #         {
-        #             "title": "Crew Member",
-        #             "start_date": "Oct 2022",
-        #             "end_date": "Jan 2023",
-        #         },
-        #     ],
-        #     "responsibilities": [
-        #         "Carry out kitchen duties",
-        #     ],
-        # },
         {
             "company": "Pi Tech Info Pvt. Ltd.",
             "description": "Fintech startup that provides trading analytics for the Nepalese Stock market",
